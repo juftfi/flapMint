@@ -7,7 +7,7 @@ export const config = {
   // Flap Portal (BSC Testnet)
   flapPortal: "0x5bEacaF7ABCbB3aB280e80D007FD31fcE26510e9",
 
-  // FlapAgentNFT contract (update after deployment)
+  // FlapMintNFT contract (update after deployment)
   flapAgentNFT: "0x0000000000000000000000000000000000000000",
 
   // Agent private key (from .env)

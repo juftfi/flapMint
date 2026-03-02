@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * FlapAgent Runtime - MVP
+ * FlapMint Runtime - MVP
  *
  * Usage:
  *   node agent/run.js launch --name "MyToken" --symbol "MTK" --buy 0.001
@@ -29,7 +29,7 @@ function getArg(name) {
 
 async function main() {
   if (!command) {
-    console.log("FlapAgent Runtime");
+    console.log("FlapMint Runtime");
     console.log("=================");
     console.log("Commands:");
     console.log("  launch  --name <name> --symbol <symbol> [--buy <bnb>] [--meta <ipfs_cid>]");
@@ -69,7 +69,7 @@ async function main() {
 }
 
 async function showStatus() {
-  console.log("FlapAgent Status");
+  console.log("FlapMint Status");
   console.log("=================");
   console.log(`Chain: BSC Testnet (${config.chainId})`);
   console.log(`Portal: ${config.flapPortal}`);

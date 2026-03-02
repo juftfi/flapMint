@@ -10,12 +10,12 @@ async function main() {
   const balance = await ethers.provider.getBalance(deployer.address);
   console.log("Balance:", ethers.formatEther(balance), "BNB");
 
-  const FlapAgentNFT = await ethers.getContractFactory("FlapAgentNFT");
-  const nft = await FlapAgentNFT.deploy();
+  const FlapMintNFT = await ethers.getContractFactory("FlapMintNFT");
+  const nft = await FlapMintNFT.deploy();
   await nft.waitForDeployment();
   const address = await nft.getAddress();
 
-  console.log("FlapAgentNFT deployed to:", address);
+  console.log("FlapMintNFT deployed to:", address);
   console.log("\nUpdate these files with the new address:");
   console.log("  - src/lib/contract-addresses.ts");
   console.log("  - agent/config.js");

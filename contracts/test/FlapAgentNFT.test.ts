@@ -2,7 +2,7 @@ import { describe, it, before } from "node:test";
 import assert from "node:assert/strict";
 import hre from "hardhat";
 
-describe("FlapAgentNFT", () => {
+describe("FlapMintNFT", () => {
   let ethers: any;
   let nft: any;
   let owner: any, user1: any, user2: any;
@@ -27,7 +27,7 @@ describe("FlapAgentNFT", () => {
   });
 
   async function deployFresh() {
-    const Factory = await ethers.getContractFactory("FlapAgentNFT");
+    const Factory = await ethers.getContractFactory("FlapMintNFT");
     return await Factory.deploy();
   }
 

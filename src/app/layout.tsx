@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FlapAgent - AI Agent Launchpad on BSC",
+  title: "FlapMint - AI Agent Launchpad on BSC",
   description: "Launch AI Agents that autonomously create tokens on Flap.sh",
 };
 

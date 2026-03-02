@@ -1,6 +1,6 @@
 import { CONTRACTS } from "./contract-addresses";
 
-// FlapAgentNFT ABI (BAP-578 + Flap Extension)
+// FlapMintNFT ABI (BAP-578 + Flap Extension)
 export const FLAP_AGENT_NFT_ABI = [
   // Minting
   {

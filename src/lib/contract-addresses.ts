@@ -1,6 +1,6 @@
-// FlapAgent Contract Addresses
+// FlapMint Contract Addresses
 export const CONTRACTS = {
-  // FlapAgentNFT (BAP-578) - deploy 后更新
+  // FlapMintNFT (BAP-578) - deploy 后更新
   FLAP_AGENT_NFT: "0x0000000000000000000000000000000000000000" as `0x${string}`,
 
   // Flap Portal (BSC Testnet)

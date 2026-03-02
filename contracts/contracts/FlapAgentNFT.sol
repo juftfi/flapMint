@@ -8,10 +8,10 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "./interfaces/IBAP578.sol";
 
-/// @title FlapAgentNFT - AI Agent NFT for Flap Launchpad (BAP-578)
+/// @title FlapMintNFT - AI Agent NFT for Flap Launchpad (BAP-578)
 /// @notice Each NFT represents an AI Agent that can autonomously launch tokens on Flap.sh
 /// @dev Implements BAP-578 with Flap-specific extensions: strategy type, launched tokens tracking
-contract FlapAgentNFT is ERC721Enumerable, ReentrancyGuard, Pausable, Ownable, IBAP578 {
+contract FlapMintNFT is ERC721Enumerable, ReentrancyGuard, Pausable, Ownable, IBAP578 {
 
     // ─── Constants ───────────────────────────────────────────────
     uint256 public constant MAX_AGENTS_PER_ADDRESS = 5;
@@ -19,7 +19,7 @@ contract FlapAgentNFT is ERC721Enumerable, ReentrancyGuard, Pausable, Ownable, I
     // ─── Flap Agent Extension ────────────────────────────────────
     enum StrategyType { MEME_LAUNCHER, TREND_FOLLOWER, COMMUNITY_BUILDER }
 
-    struct FlapAgentInfo {
+    struct FlapMintInfo {
         StrategyType strategy;
         address agentWallet;        // EOA controlled by agent runtime
         uint256 tokensLaunched;
@@ -47,7 +47,7 @@ contract FlapAgentNFT is ERC721Enumerable, ReentrancyGuard, Pausable, Ownable, I
     mapping(address => uint256) public mintCount;
 
     // Flap extension state
-    mapping(uint256 => FlapAgentInfo) private _agentInfo;
+    mapping(uint256 => FlapMintInfo) private _agentInfo;
     mapping(uint256 => TokenLaunch[]) private _tokenLaunches;
 
     // ─── Events ──────────────────────────────────────────────────
@@ -67,7 +67,7 @@ contract FlapAgentNFT is ERC721Enumerable, ReentrancyGuard, Pausable, Ownable, I
     }
 
     // ─── Constructor ─────────────────────────────────────────────
-    constructor() ERC721("FlapAgent", "FAGENT") Ownable(msg.sender) {}
+    constructor() ERC721("FlapMint", "FAGENT") Ownable(msg.sender) {}
 
     // ═══════════════════════════════════════════════════════════════
     // MINTING (BAP-578 + Flap Extension)
@@ -92,7 +92,7 @@ contract FlapAgentNFT is ERC721Enumerable, ReentrancyGuard, Pausable, Ownable, I
 
         _agentMetadata[tokenId] = metadata;
         _agentStates[tokenId] = AgentState.ACTIVE;
-        _agentInfo[tokenId] = FlapAgentInfo({
+        _agentInfo[tokenId] = FlapMintInfo({
             strategy: strategy,
             agentWallet: agentWallet,
             tokensLaunched: 0,
@@ -130,7 +130,7 @@ contract FlapAgentNFT is ERC721Enumerable, ReentrancyGuard, Pausable, Ownable, I
     }
 
     /// @notice Get agent's Flap-specific info
-    function getAgentInfo(uint256 tokenId) external view returns (FlapAgentInfo memory) {
+    function getAgentInfo(uint256 tokenId) external view returns (FlapMintInfo memory) {
         _requireOwned(tokenId);
         return _agentInfo[tokenId];
     }
