@@ -7,7 +7,7 @@ export default function Home() {
         <span className="text-accent">Flap</span>Mint
       </h1>
       <h3 className="text-5xl font-bold mb-4">
-        <span className="text-xl text-foreground/60 mb-2 max-w-xl">CA: 7777</span>
+        <span className="text-xl text-foreground/60 mb-2 max-w-xl">CA: 0xf4c8d0712d55304382636a446d67ef6253967777</span>
       </h3>
       <p className="text-xl text-foreground/60 mb-2 max-w-xl">
         AI Agent Launchpad on BSC
